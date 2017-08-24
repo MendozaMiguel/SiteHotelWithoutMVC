@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang=”fr”>
+
+<% include squelette/header.ejs %>
+<body>
+<% include squelette/navbar.ejs %>
+<div class="container">
+    <section>
+
+        <% resultat.forEach(function (item)  { %>
+
+        <form class="form-horizontal" action="/utilisateurs/<%= item.id%>" method="post" encType="multipart/form-data" >
+            <input type="hidden" name="_method" value="put"/>
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Modifier</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="prenom">Prénom</label>
+                    <div class="col-md-4">
+                        <input id="prenom" name="prenom" type="text" class="form-control input-md" value="<%= item.prenom%>" required="">
+
+                    </div>
+                </div>
+
+                <!-- Password input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="motDePass">Mot de passe</label>
+                    <div class="col-md-4">
+                        <input id="motDePass" name="motDePass" type="password" class="form-control input-md" value="<%= item.motdepasse%>" required="">
+
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for=""></label>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+
+        <% }) %>
+
+
+
+
+
+    </section>
+</div>
+<% include squelette/footer.ejs %>
+
+</body>
+</html>

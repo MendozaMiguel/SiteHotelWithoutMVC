@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang=”fr”>
+
+<% include squelette/header.ejs %>
+<body>
+<% include squelette/navbar.ejs %>
+<div class="container">
+    <div class="row">
+        <section>
+
+            <table class="table table-expansed">
+                <thead>
+                <tr>
+                    <th>#ID</th>
+                    <th>Prénom/pseudo</th>
+                    <th>Action</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                <% if (typeof utilisateurs == 'object' && utilisateurs.length >0 )  { %>
+                <% utilisateurs.forEach(function (utilisateur)  { %>
+                <tr>
+
+                    <td><%= utilisateur.id %></td>
+                    <td><%= utilisateur.prenom %></td>
+                    <td>
+                        <form action="/utilisateurs/<%= utilisateur.id %>" method="post">
+
+                            <input type="hidden" name="_method" value="delete"/>
+                            <button type="submit" class="btn btn-danger">Effacer</button>
+
+
+                        </form>
+                    </td>
+                    <td>
+                        <a href="/utilisateurs/<%= utilisateur.id%>" class="btn btn-primary">Modifier</a>
+                    </td>
+
+
+                </tr>
+                <% }) %>
+                <% }else { %>
+
+                <td class="text-center"> Aucuns Utilisateurs</td>
+
+                <% } %>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+<% include squelette/footer.ejs %>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">HOTEL DE L'ETOILE</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/listechambre">Chambres Disponibles</a></li>
+        <li><a href="/tarif">Prix</a></li>
+        <li><a href="/reservation">Réservation</a></li>
+        <li><a href="/noustrouver">Nous trouver</a></li>
+        <li><a href="/contact">Contact</a></li>
+
+        <% if(!connecte){ %>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
+            <ul id="login-dp" class="dropdown-menu">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-12">
+                       <h4><b>Connectez-vous</b></h4>
+                        <form class="form" role="form" method="post" action="/connexion" accept-charset="UTF-8" id="login-nav">
+                          <div class="form-group">
+                            <label class="sr-only" for="exampleInputlogin2">Identifiant</label>
+                            <input type="text" class="form-control" id="exampleInputlogin2" name="prenom" placeholder="Identifiant" required>
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only" for="exampleInputPassword2">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword2" name="motDePass" placeholder="Password" required>
+                          </div>
+                          <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Connectez-vous</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+          </li>
+
+          <% } else{ %>
+          <li><a href="/enregistrement">Add administrator</a></li>
+          <!-- <li><a href="/utilisateurs">Liste utilisateurs</a></li> -->
+          <li><a href="/admin">Modification</a></li>
+          <li><a href="/deconnexion"><span class="glyphicon glyphicon-log-out"></span> Deconnexion</a></li>
+          <% } %>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-collapse -->
+      <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
+  </nav>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang=”fr”>
+
+<% include squelette/header.ejs %>
+<body>
+<a href="/admin">Retour</a>
+
+<div class="row">
+    <div class="col-sm-6">
+        <h1><strong>Voir un item</strong></h1>
+        <br>
+        <form>
+            <% result.forEach(function(item){ %>
+            <div class="form-group">
+                <label>Nom :<%= item.name %></label>
+            </div>
+            <div class="form-group">
+                <label>Description:<%= item.description %></label>
+            </div>
+            <div class="form-group">
+                <label>Prix:<%= item.price%></label>
+            </div>
+            <div class="form-group">
+                <label>Catégories:<%= item.category%></label>
+            </div>
+            <div class="form-group">
+                <label>Image:<img src="/public/images/upload/img_<%= item.image %>" width="200" height="200"></label>
+            </div>
+            <%}) %>
+        </form>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<% include squelette/footer.ejs %>
+
+</body>
+</html>

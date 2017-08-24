@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang=”fr”>
+
+<% include squelette/header.ejs %>
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>Ajouter un Produit</h2>
+
+    </div>
+    <form role="form" action="/admin" method="POST" encType="multipart/form-data">
+
+        <div class="form-group">
+            <label for="fname">Name:</label>
+            <input type="text" class="form-control" id="fname" name="fname" required>
+        </div>
+
+        <div class="form-group">
+            <label for="lname">Description:</label>
+            <input type="text" class="form-control" id="lname" name="lname" required>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="email">Prix:</label>
+            <input type="number" class="form-control" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="fichier">Choisir l'image:</label>
+            <input type="file" id="fichier" name="fichier">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Categorie:</label>
+            <input type="number" class="form-control" id="phone" name="phone">
+        </div>
+
+
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+
+
+
+
+</div>
+
+
+<% include squelette/footer.ejs %>
+
+</body>
+</html>

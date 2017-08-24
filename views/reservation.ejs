@@ -1,0 +1,267 @@
+<%include ./squelette/header%>
+<%include ./squelette/navbar%>
+<nav>
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="/">Back</a></li>
+    </ul>
+</nav>
+<form role="form" action="/reservation" method="post">
+  <!-- DATE RESERVATION -->
+<h3>Période de réservation (*)</h3>
+
+<b>Sélectionnez la date d'arrivée (cliquez sur le calendrier) (*) :</b>
+<div class="form-group">
+ <label for="datechoisi">Veuillez saisir une date :</label>
+ <input type="datetime"  id="datechoisi" name="datechoisi" placeholder="YYYY-MM-DD hh:mm:ss">
+</div>
+
+<b>Nuits (*) : </b>
+<select name="nb_nuit" id="nb_nuit">
+<script>
+var select = document.getElementById("nb_nuit");
+//Modifie les options dans une liste déroulante
+// var i=0;
+ for(var i=1;i<=30;i++){
+     select.options[select.options.length] = new Option(i,i);
+}
+</script>
+</select>
+
+<b>Nombre de personnes (*) :</b>
+<select name="nb_personnes" id="nb_personnes">
+<script>
+var select = document.getElementById("nb_personnes");
+var i=0;
+ for(i=1;i<=30;i++){
+     select.options[select.options.length] = new Option(i,i);
+}
+</script>
+</select>
+<hr>
+<!-- FIN DATE RESERVATION -->
+
+<!-- TYPE HERBERGEMENT -->
+<h3>Type d'hébergement</h3>
+<div class="form-group">
+ <label for="type">Type</label>
+  <INPUT type= "radio" name="type" value="Chambre seule" checked> Chambre seule
+  <INPUT type= "radio" name="type" value="Demi-pension" > Demi-pension
+  <INPUT type= "radio" name="type" value="Pension complète"> Pension complète
+</div>
+<!-- FIN TYPE HERBERMENT -->
+
+<!-- INFORMATIONS CLIENTS -->
+<h3>Informations vous concernant (*)</h3>
+<div class="form-group">
+  <label for="nom">Nom (*) :</label>
+  <input type="text" class="form-control" id="nom" name="nom" required>
+</div>
+<div class="form-group">
+  <label for="prenom">Prénom (*) :</label>
+  <input type="text" class="form-control" id="prenom" name="prenom" required>
+</div>
+<div class="form-group">
+  <label for="tel">Téléphone (*) :</label>
+  <input type="text" class="form-control input-only" maxlength="10" id="tel" name="tel" placeholder="0612345678" pattern="(0|\\+33|0033)[1-9][0-9]{8}" required>
+</div>
+<div class="form-group">
+  <label for="courriel">Courriel (*) :</label>
+  <input type="text" class="form-control" id="courriel" name="courriel" required>
+</div>
+<div class="form-group">
+  <label for="adresse">Adresse (*) :</label>
+  <input type="text" class="form-control" id="adresse" name="adresse" required>
+</div>
+<div class="form-group">
+  <label for="comp_adresse">Complément d'adresse :</label>
+  <input type="text" class="form-control" id="comp_adresse" name="comp_adresse" required>
+</div>
+<div class="form-group">
+  <label for="cp">Code postal (*) :</label>
+  <input type="text" class="form-control" maxlength="5" id="cp" name="cp" required >
+</div>
+<div class="form-group">
+  <label for="ville">Ville (*) :</label>
+  <input type="text" class="form-control" id="ville" name="ville" required>
+</div>
+<div class="form-group">
+  <label for="pays">Pays (*) :</label>
+  <input type="text" class="form-control" id="pays" name="pays" required>
+</div>
+<hr>
+<!-- FIN INFORMATIONS CLIENTS -->
+
+<!-- CHAMBRES -->
+<h3>Chambres (*)</h3>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <p>Type de chambre</p>
+    </div>
+    <div class="col-md-4">
+      <p>Prix</p>
+    </div>
+    <div class="col-md-4">
+      <p>Nombre de chambres</p>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <p>Single
+GL (2 pers max)</p>
+    </div>
+    <div class="col-md-4">
+      <p>55.00 €</p>
+    </div>
+    <div class="col-md-4">
+      <p>Chambres (*) : </p>
+      <select name="chambres1" id="chambres1">
+      <script>
+      var select = document.getElementById("chambres1");
+      var i=0;
+       for(i=1;i<=10;i++){
+           select.options[select.options.length] = new Option(i,i);
+      }
+      </script>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <p>Twin 2 lits
+PL PL (2 pers max)</p>
+    </div>
+    <div class="col-md-4">
+      <p>55.00 €</p>
+    </div>
+    <div class="col-md-4">
+      <p>Chambres (*) : </p>
+      <select name="chambres2" id="chambres2">
+      <script>
+      var select = document.getElementById("chambres2");
+      var i=0;
+       for(i=1;i<=10;i++){
+           select.options[select.options.length] = new Option(i,i);
+      }
+      </script>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <p>Familial Triple 2 lits
+GL PL (3 pers max)</p>
+    </div>
+    <div class="col-md-4">
+      <p>68.00 €</p>
+    </div>
+    <div class="col-md-4">
+      <p>Chambres (*) : </p>
+      <select name="chambres3" id="chambres3">
+      <script>
+      var select = document.getElementById("chambres3");
+      var i=0;
+       for(i=1;i<=10;i++){
+           select.options[select.options.length] = new Option(i,i);
+      }
+      </script>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <p>Familial Triple 3 lits
+PL PL PL (3 pers max)</p>
+    </div>
+    <div class="col-md-4">
+      <p>68.00 €</p>
+    </div>
+    <div class="col-md-4">
+      <p>Chambres (*) : </p>
+      <select name="chambres4" id="chambres4">
+      <script>
+      var select = document.getElementById("chambres4");
+      var i=0;
+       for(i=1;i<=10;i++){
+           select.options[select.options.length] = new Option(i,i);
+      }
+      </script>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <p>Familial Quadruple
+GL GL (4 pers max)</p>
+    </div>
+    <div class="col-md-4">
+      <p>70.00 €</p>
+    </div>
+    <div class="col-md-4">
+      <p>Chambres (*) : </p>
+      <select name="chambres5" id="chambres5">
+      <script>
+      var select = document.getElementById("chambres5");
+      var i=0;
+       for(i=1;i<=10;i++){
+           select.options[select.options.length] = new Option(i,i);
+      }
+      </script>
+      </select>
+    </div>
+  </div>
+
+</div>
+<hr>
+<!-- FIN CHAMBRES -->
+
+<!-- SUPPLEMENTAIRES -->
+<h3>Options supplémentaires</h3>
+<select name="petitdej" id="petitdej">
+<script>
+var select = document.getElementById("petitdej");
+var i=0;
+ for(i=1;i<=30;i++){
+     select.options[select.options.length] = new Option(i,i);
+}
+</script>
+</select>  Nombre de petits déjeuners par nuit
+<hr>
+<!-- FIN SUPPLEMENTAIRES  -->
+
+<!-- PREFERENCES -->
+<h3>Préférences</h3>
+<div class="form-group">
+ <label for="balcon">Balcon :</label>
+  <INPUT type= "radio" name="balcon" value="Sans importance" checked> Sans importance
+  <INPUT type= "radio" name="balcon" value="Oui" > Oui
+</div>
+<div class="form-group">
+ <label for="vue">Vue extérieure :</label>
+  <INPUT type= "radio" name="vue" value="Sans importance" checked> Sans importance
+  <INPUT type= "radio" name="vue" value="Vue sur basilique et montagne" > Vue sur basilique et montagne
+</div>
+<div class="form-group">
+ <label for="climatisation">Climatisation :  </label>
+  <INPUT type= "radio" name="climatisation" value="Sans importance" checked> Sans importance
+  <INPUT type= "radio" name="climatisation" value="Oui" > Oui
+</div>
+<hr>
+<!-- FIN PREFERENCES -->
+
+<!-- MESSAGE COMPLEMENTAIRE -->
+<div class="form-group">
+  <label for="msgcomplementaire">Ajouter un message complémentaire</label>
+  <textarea type="text" class="form-control" id="msgcomplementaire" name="msgcomplementaire"></textarea>
+</div>
+<!-- FIN MESSAGE COMPLEMENTAIRE -->
+
+
+ <button type="submit" class="btn btn-default">Submit</button>
+</form>
+<% include ./squelette/footer%>

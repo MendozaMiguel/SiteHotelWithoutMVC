@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang=”fr”>
+
+<% include ./squelette/header.ejs %>
+<body>
+<% include ./squelette/navbar.ejs %>
+
+<div class="tab-content">
+
+    <div class="tab-pane active" id="1">
+        <div class="row">
+        <% resultat.forEach(function(item){ %>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="/public/images/upload/img_<%= item.image %>" alt="..." style="height:200px;width:200px;">
+                    <p>Prix :</p><div class="price"><%= item.price %>€</div>
+                    <div class="caption">
+                        <h4><%= item.name%></h4>
+                        <p>Description</p><p><%= item.description%></p>
+                        <a href="/reservation" class="btn btn-order" role="button"><span class="glyphicon glyphicon-credit-card"></span> Reserver</a>
+                    </div>
+                </div>
+            </div>
+            <%}) %>
+        </div>
+    </div>
+
+    <!-- fin panel -->
+</div>
+<% include squelette/footer.ejs %>
+</body>
+</html>
